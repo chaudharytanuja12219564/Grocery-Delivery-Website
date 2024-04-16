@@ -1,6 +1,4 @@
 # shoppingsite
-Watch it on youtube now...
-https://www.youtube.com/watch?v=GiWJQOin5dk
 
 Some screenshots from the project
 
