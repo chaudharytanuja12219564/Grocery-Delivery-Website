@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
+    <title>Food Website</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <!-- desktop view -->
+    <div class="container" id="container" >
+        <div id="menu" style="background-image: url(/vegetables-8656634_1920.jpg); z-index: -1; object-fit: cover;">
+            <div class="title" style="color: white; text-align: center; font-size: 24px; padding: 0;">
+                <span style="background-color: rgba(44, 43, 43, 0.5); font-size: 35px; color: rgb(249, 248, 248); font-family: 'Aclonica', sans-serif; padding: 0;">Hungry? We're one Click Away.</span>
+            </div>
+            <div v1>
+                <video autoplay muted loop>
+                    <source src="/vecteezy_black-friday-delivery-man-on-scooter_4575774.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="menu-item" >
+            </div>
+        </div>
+
+        <div id="food-container">
+            <div id="header" style="background-image: url(/vegetables-8656634_1920.jpg)">
+                <div class="add-box">
+                    <i class="fa fa-map-marker your-address" id="add-address"> Your Address</i>
+                </div>
+                <div class="util"  style="background-image: url(/vegetables-8656634_1920.jpg)">
+                    <!-- <i class="fa fa-search"> Search</i> -->
+                    <!-- <i class="fa fa-tags"> Offers</i> -->
+                    <i class="fa fa-cart-plus" id="cart-plus"> 0 Items</i>
+                    <i class="fa fa-user" id="circle"> <a href="loginpage">Login</a> </i>
+                    <i class="fa fa-user" id="circle"> <a href="signuppage">Signup</a> </i>
+                </div>
+            </div>
+            <div id="food-items" class="d-food-items" style="background-image: url(/vegetables-8656634_1920.jpg)">
+                <div id="fruits" class="d-fruits">
+                    <p id="category-name">Fresh-Fruits</p>    
+                </div>
+
+                <div id="veggies" class="d-veggies">
+                    <p id="category-name">Vegetables</p>    
+                </div>
+
+                <div id="snacks" class="d-snacks">
+                    <p id="category-name">Snacking Corner</p>
+                </div>
+
+                <div id="groceries" class="d-groceries">
+                    <p id="category-name">Groceries For Kitchen</p> 
+                </div>
+
+                <div id="Icecream" class="d-Icecream">
+                    <p id="category-name">Ice-Cream</p> 
+                </div>
+
+                <div id="toiletries" class="d-toiletries">
+                    <p id="category-name">Toiletries</p>
+                </div>
+            </div>
+
+            <div id="cart-page" class="cart-toggle">
+                <p id="cart-title">Cart Items</p>
+                <p id="m-total-amount">Total Amout : 100</p>
+                <table>
+                    <thead>
+                        <td>Item</td>
+                        <td>Name</td>
+                        <td>Quantity</td>
+                        <td>Price</td>
+                    </thead>
+                    <tbody id="table-body">
+                        
+                    </tbody>
+                </table>
+                <div class="btn-box">
+                    <a href="checkout"><button class="cart-btn" >Checkout</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="cart" style="background-image: url(/vegetables-8656634_1920.jpg)">
+            <div class="taste-header" style="background-image: url(/vegetables-8656634_1920.jpg)">
+                <div class="user">
+                
+                </div>
+            </div>
+            <div id="category-list" style="background-image: url(/vegetables-8656634_1920.jpg)" >
+                <p class="item-menu"style="background-image: url(/vegetables-8656634_1920.jpg)">Go For Hunt</p>
+                <div class="border"></div>                
+            </div>
+            <div id="checkout" class="cart-toggle">
+                <p id="total-item">Total Item : 5</p>
+                <p id="total-price"></p>
+                <p id="delivery">Free delivery on Rs.400</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- mobile view -->
+    <div id="mobile-view" class="mobile-view">
+        <div class="mobile-top">
+            <div class="logo-box">
+                <!-- <img src="foodielogo.png" alt="" id="logo"> -->
+                <i class="fa fa-map-marker your-address" id="m-add-address"> Your Address</i>
+            </div>
+            <div class="top-menu">
+                <i class="fa fa-search"></i>
+                <i class="fa fa-tag"></i>
+                <i class="fa fa-heart-o"></i>
+                <i class="fa fa-cart-plus" id="m-cart-plus"> 0</i>
+            </div>
+        </div>
+        
+        <div class="item-container">
+            <div class="category-header" id="category-header">  
+            </div>
+
+            <div id="food-items" class="food-items">
+                <div id="fruits" class="m-fruits">
+                    <p id="category-name">Fresh-Fruits</p>    
+                </div>
+                <div id="veggies" class="m-veggies">
+                    <p id="category-name">Vegetable</p>    
+                </div>
+                <div id="snacks" class="m-snacks">
+                    <p id="category-name">Snacking Corner</p>
+                </div>
+                <div id="groceries" class="m-groceries">
+                    <p id="category-name">Groceries For Kitchen</p> 
+                </div>
+                <div id="Icecream" class="m-Icecream">
+                    <p id="category-name">Ice-Cream</p> 
+                </div>
+                <div id="toiletries" class="m-toiletries">
+                    <p id="category-name">Toiletries</p>
+                </div>
+            </div>            
+        </div>
+
+        
+    </div>
+    <script src="/app.js" type="module"></script>
+    <script src="/fooditem.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
+    <title>Checkout - Food Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(195, 187, 187, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: -55px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        /* Adjust the video to the left side */
+.v1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* width: 50%; Adjust the width as needed */
+    z-index: -1; /* Ensure the video stays behind other content */
+    margin-top: 150px;
+    margin-right: -150px;
+}
+
+/* Adjust the container to the right side */
+.container {
+    max-width: 500px;
+    margin-top: 5px;
+    padding: 20px;
+    background-color: rgba(195, 187, 187, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right: -550; /* Adjust the value to move the container to the right */
+    transform: translateX(-50%); /* Center the container horizontally */
+    margin-top: 35px;
+    padding: 2%;
+}
+
+        #delivery-details,
+        #payment-details {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th,
+        table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+    </style>
+</head>
+<body style="background-color: #ddd;">
+    <div class="v1">
+        <video autoplay muted loop>
+            <source src="/istockphoto-969538498-640_adpp_is.mp4" type="video/mp4">
+          </video>
+        </div>
+
+    <div class="container">
+        <div id="checkout-container">
+            <h2>Checkout</h2>
+            <div id="delivery-details">
+                <h3>Delivery Details</h3>
+                <form id="delivery-form" method="post" action="/checkout">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="add" required></textarea>
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="ph" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </form>
+            </div>
+            <div id="payment-details">
+                <h3>Payment Details</h3>
+                <div id="payment-options">
+                    <input type="radio" id="credit-card" name="payment" value="credit-card" checked>
+                    <label for="credit-card">Credit Card</label><br>
+                    <input type="radio" id="paypal" name="payment" value="paypal">
+                    <label for="paypal">PayPal</label><br>
+                    <input type="radio" id="cash-on-delivery" name="payment" value="cash-on-delivery">
+                    <label for="cash-on-delivery">Cash on Delivery</label>
+                </div>
+            </div>
+            <button id="place-order-btn">Place Order</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to calculate total price based on item quantities
+            function calculateTotalPrice() {
+                let total = 0;
+                const items = document.querySelectorAll("#checkout-items tr");
+                items.forEach(item => {
+                    const quantity = parseInt(item.querySelector(".quantity").innerText);
+                    const price = parseFloat(item.querySelector(".price").innerText.substring(1)); // Remove '$' sign
+                    total += quantity * price;
+                });
+                document.getElementById("total-price").innerText = "Total Price: $" + total.toFixed(2);
+            }
+
+            // Function to handle place order button click
+            document.getElementById("place-order-btn").addEventListener("click", function() {
+                // Validate form fields (you can add more validation logic as needed)
+                const name = document.getElementById("name").value.trim();
+                const address = document.getElementById("address").value.trim();
+                const phone = document.getElementById("phone").value.trim();
+                const email = document.getElementById("email").value.trim();
+
+                if (name === "" || address === "" || phone === "" || email === "") {
+                    alert("Please fill in all fields.");
+                    return;
+                }
+
+                // Optionally, you can submit the form data to a backend for processing here
+                // For now, just show an alert indicating the order has been placed
+                alert("Order placed successfully!");
+                
+                // Redirect to the main page (index.html)
+                window.location.href = "index.html";
+            });
+
+            // Initial calculation of total price
+            calculateTotalPrice();
+        });
+    </script>
+</body>
+</html>

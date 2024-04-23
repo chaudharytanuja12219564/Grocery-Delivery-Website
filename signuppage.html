@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title >Signup page</title>
+  <style>
+
+body {
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+
+  .container {
+  max-width: 40rem; /* Adjust this value to your desired width */
+  height: 40rem;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-right: -550px;
+}
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Apply the animation to the H1 element */
+  h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 30px; /* Increase font size for emphasis */
+  color: #333;
+  text-decoration: wavy;
+}
+
+
+    .form-group {
+      margin-bottom: 20px;
+      animation: fadeIn 2.5s ease-out forwards;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    input, textarea {
+      width: 18rem;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #007bff;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #message {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <video autoplay muted loop>
+    <source src="/vecteezy_black-friday-delivery-man-on-scooter_4575774.mp4" type="video/mp4">
+  </video>
+
+  <p>
+  <div class="container">
+    <h1>Signup Now</h1>
+    <form id="signupForm" method="post" action="/signuppage">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="uname" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="ph" required>
+      </div>
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea id="address" name="add" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="pass" required>
+      </div>
+      <button type="submit">Signup</button>
+    </form>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    function validateForm() {
+      var name = document.getElementById('name').value;
+      var username = document.getElementById('username').value;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('phone').value;
+      var address = document.getElementById('address').value;
+      var password = document.getElementById('password').value;
+      var message = document.getElementById('message');
+
+      if (name === '' || username === '' || email === '' || phone === '' || address === '' || password === '') {
+        message.textContent = 'Please fill in all fields';
+        message.style.color = 'red';
+        return false;
+      }
+
+      // You can add more complex validation logic here, such as checking the email format or password strength
+
+      message.textContent = 'Signup successful!';
+      message.style.color = 'green';
+      return true;
+    }
+  </script>
+  </p>
+</body>
+</html>
